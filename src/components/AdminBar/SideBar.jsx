@@ -1,17 +1,38 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import style from "./adminBar.module.css";
+import { Link } from 'react-router-dom';
 
 
 const Sidebar = () => {
   return (
-    <div >
-      <Nav defaultActiveKey="/home" >
-        <Nav.Link href="/dashboard" className={style.text}>Página principal</Nav.Link>
-        <Nav.Link href="/users" className={style.text}>Usuarios</Nav.Link>
-        <Nav.Link href="/products" className={style.text}>Productos</Nav.Link>
-        <Nav.Link className={style.text}>Usuarios baneados</Nav.Link>
-        {/* Agrega más enlaces de navegación aquí */}
+    <div>
+      <Nav defaultActiveKey="/home" className={style.textContainer}>
+        <Nav.Link>
+          <Link to="/home" className={style.text}>
+            Página principal
+          </Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to="/users" className={style.text}>
+            Usuarios
+          </Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to="/products" className={style.text}>
+            Productos
+          </Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to="/banned-users" className={style.text}>
+            Usuarios baneados
+          </Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to="/post-product" className={style.text}>
+            Crear nuevo producto
+          </Link>
+        </Nav.Link>
       </Nav>
     </div>
   );

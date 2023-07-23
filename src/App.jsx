@@ -10,6 +10,8 @@ import NavBar from './components/NavBar/NavBar'
 import Users from './components/Users/Users';
 import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
+import PostProduct from './components/PostProduct/PostProduct';
+import BannedUsers from './components/BannedUsers/BannedUsers';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <Route path="*" element={<Home />} />
               <Route path="/users" element={<Users />} />
               <Route path='/products' element={<Products />} />
+              <Route path="/post-product" element={<PostProduct />} />
+              <Route path='/banned-users' element={<BannedUsers />}/>
             </Routes>
           </div>
         </div>
