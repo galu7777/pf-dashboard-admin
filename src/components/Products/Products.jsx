@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getAllProducts } from '../../redux/actions';
 import PaginationComponent from '../Pagination/Pagination';
+import RestartFilters from '../Filters/ProductsFilters/RestartFilters';
 
 function Products () {
   const dispatch = useDispatch();
@@ -46,11 +47,12 @@ function Products () {
               <h4>Precio</h4>
               <CategoryFilter />
               <ProductStatusFilter />
+              <RestartFilters />
           </Col>
       </Row>     
       <ListGroup>
         {
-          currentProducts.map((product) => (
+            currentProducts.map((product) => (
             <Product
             id={product.id}
             name={product.name}

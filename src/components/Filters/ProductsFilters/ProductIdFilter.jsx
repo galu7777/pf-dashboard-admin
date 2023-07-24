@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Dropdown, Form } from 'react-bootstrap';
 import style from "../Filters.module.css"
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { productIdFilter, productIdSort } from '../../../redux/actions';
 
 function ProductIdFilter () {
     const [ selectedOption, setSelectedOption ] = useState(null);
     const [ input, setInput ] = useState("");
-    const idFilter = useSelector(state => state.ProductIdFilter)
     const dispatch = useDispatch();
 
     const inputHandler = (e) => {
       const { value } = e.target;
-      setInput(value)
+        setInput(value > 0 && value)
     }
 
     const handleOptionSelect = (option) => {
@@ -24,11 +23,9 @@ function ProductIdFilter () {
       }
     }
 
-    const handleClick = (value) => {
-      dispatch(productIdFilter(value))
+    const handleClick = () => {
+      dispatch(productIdFilter(input))
     }
-
-    console.log(idFilter)
 
     return (
     <Dropdown>
@@ -43,7 +40,7 @@ function ProductIdFilter () {
           value={input}
           onChange={(e) => inputHandler(e)}
           />
-          <button onClick={() => handleClick(input)}>
+          <button onClick={() => handleClick()}>
             <i class="bi bi-search" ></i>
           </button>
         </div>

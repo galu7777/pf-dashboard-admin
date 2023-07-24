@@ -11,13 +11,14 @@ export const reducer = (state = initialState, { type, payload }) => {
         case GET_ALL_PRODUCTS:
             return{
                 ...state,
-                products: payload
+                products: payload,
+                allProducts: payload
             }
 
         case PRODUCT_ID_FILTER:
             return{
                 ...state,
-                productIdFilter: payload
+                products: [payload]
             }
         
         case PRODUCT_ID_SORT:
