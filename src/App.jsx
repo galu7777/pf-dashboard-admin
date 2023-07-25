@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './App.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -7,11 +8,19 @@ import NavBar from './components/NavBar/NavBar'
 import Users from './components/Users/Users';
 import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
-import PostProduct from './components/PostProduct/PostProduct';
 import BannedUsers from './components/BannedUsers/BannedUsers';
+import { useDispatch } from 'react-redux';
+import { getAllCategories, getAllProducts } from './redux/actions';
+import Categories from './components/Categories/Categories';
 import './App.css'
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+    dispatch(getAllCategories())
+  }, [dispatch]);
   return (
     <div>
       <NavBar />
@@ -26,8 +35,8 @@ function App() {
               <Route path="*" element={<Home />} />
               <Route path="/users" element={<Users />} />
               <Route path='/products' element={<Products />} />
-              <Route path="/post-product" element={<PostProduct />} />
               <Route path='/banned-users' element={<BannedUsers />}/>
+              <Route path='/categories' element={<Categories />}/>
             </Routes>
           </div>
         </div>

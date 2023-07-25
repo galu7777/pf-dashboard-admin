@@ -1,5 +1,4 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import style from "./Products.module.css"
 import { Col, Container, Row } from 'react-bootstrap';
 import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
@@ -77,12 +76,12 @@ const handleFilterChange = () => {
         {
           currentProducts.map((product) => (
             <Product
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              image={product.image}
-              price={product.price}
-              category={product.category}
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            image={product.image}
+            price={product.price}
+            category={product.category}
             />
           ))
         }

@@ -1,24 +1,21 @@
 import { Dropdown, Form } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 function CategoryFilter () {
+    const categories = useSelector(state => state.categories)
+
     return (
     <Dropdown>
         <Dropdown.Toggle variant="transparent">
             Categorias
         </Dropdown.Toggle>
         <Dropdown.Menu>
-        <Form.Check 
-        aria-label="option 1" 
-        label="Categoria 1"
-        />
-        <Form.Check 
-        aria-label="option 1" 
-        label="Categoria 2"
-        />
-        <Form.Check 
-        aria-label="option 1" 
-        label="Categoria 3"
-        />
+            {categories.map((category) => (
+                <Form.Check 
+                label={category.name}
+                />
+
+            ))}
         </Dropdown.Menu>
       </Dropdown>
     )
