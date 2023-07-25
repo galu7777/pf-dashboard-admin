@@ -24,13 +24,13 @@ const Sidebar = () => {
           </Link>
         </Nav.Link>
         <Nav.Link>
-          <Link to="/banned-users" className={style.text}>
-            Usuarios baneados
+          <Link to="/categories" className={style.text}>
+            Categorias
           </Link>
         </Nav.Link>
         <Nav.Link>
-          <Link to="/post-product" className={style.text}>
-            Crear nuevo producto
+          <Link to="/banned-users" className={style.text}>
+            Usuarios baneados
           </Link>
         </Nav.Link>
       </Nav>

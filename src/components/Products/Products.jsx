@@ -15,7 +15,6 @@ function Products () {
   const products = useSelector((state) => state.products);
   const idSorted = useSelector((state) => state.productIdSort)
   const productNameSort = useSelector(state => state.productNameSort)
-  let boolean = true;
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -23,7 +22,7 @@ function Products () {
   const applyFilters = (nameOrder, idOrder, arr) => {
     const nameSortedArray = arr.slice().sort((a, b) => {
         if (nameOrder === "a-z") {
-            return a.name.localeCompare(b.name);
+          return a.name.localeCompare(b.name);
         } else if (nameOrder === "z-a") {
             return b.name.localeCompare(a.name);
         } else {
@@ -49,7 +48,6 @@ function Products () {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = applyFilters(productNameSort, idSorted, products).slice(indexOfFirstItem, indexOfLastItem);
-  console.log(products)
 
     return (
       <Container>
@@ -73,7 +71,6 @@ function Products () {
             image={product.image}
             price={product.price}
             category={product.category}
-            boolean={!boolean}
             />
           ))
         }
