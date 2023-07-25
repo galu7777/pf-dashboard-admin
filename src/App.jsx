@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,17 +9,18 @@ import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
 import PostProduct from './components/PostProduct/PostProduct';
 import BannedUsers from './components/BannedUsers/BannedUsers';
+import './App.css'
 
 function App() {
   return (
     <div>
       <NavBar />
-      <div className="container-fluid">
+      <div className="container-fluid fondo">
         <div className="row">
-          <div className="col-2">
+          <div className="col-3">
             <AdminBar />
           </div>
-          <div className="col-10">
+          <div className="col-8 fondo">
             <Routes>
               <Route index element={<Home />} />
               <Route path="*" element={<Home />} />
