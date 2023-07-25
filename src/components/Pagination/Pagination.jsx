@@ -7,12 +7,12 @@ const PaginationComponent = ({ currentPage, totalPages, onPageChange }) => {
       pageNumbers.push(i);
     }
   
-    // Ajustar el límite de números antes y después de la página actual
     const limit = 3;
     const startPage = Math.max(1, currentPage - limit);
     const endPage = Math.min(totalPages, currentPage + limit);
   
     return (
+    <div className="mt-4 d-flex justify-content-center">
       <Pagination>
         <Pagination.Prev onClick={() => onPageChange(currentPage > 1 ? currentPage - 1 : 1)} />
         {currentPage > 4 && <Pagination.Ellipsis disabled />}
@@ -37,6 +37,7 @@ const PaginationComponent = ({ currentPage, totalPages, onPageChange }) => {
         {currentPage < totalPages - 3 && <Pagination.Ellipsis disabled />}
         <Pagination.Next onClick={() => onPageChange(currentPage < totalPages ? currentPage + 1 : totalPages)} />
       </Pagination>
+    </div>
     );
   };
   

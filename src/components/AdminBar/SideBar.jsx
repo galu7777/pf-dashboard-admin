@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className={`d-flex flex-column ${style.sidebarContainer}`}>
       <Nav defaultActiveKey="/home" className={style.textContainer}>
         <Nav.Link>
           <Link to="/home" className={style.text}>

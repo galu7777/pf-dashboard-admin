@@ -77,6 +77,7 @@ const handleFilterChange = () => {
         {
           currentProducts.map((product) => (
             <Product
+            key={product.id}
             id={product.id}
             name={product.name}
             image={product.image}
