@@ -2,10 +2,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import style from "./Products.module.css"
 
 function Product (props) {
-    let boolean = true;
     return (
         <div>
-            <ListGroup.Item action variant={boolean ? "dark" : "light"} className={style.productContainer}>
+            <ListGroup.Item action variant={props.boolean ? "dark" : "light"} className={style.productContainer}>
                 <h5 className={style.productId}>{props.id}</h5>
                 <div className={style.imageDiv}>
                     <img src="https://img.freepik.com/vector-gratis/pelota-baloncesto-aislada_1284-42545.jpg?w=2000" className={style.userImage}  alt="image" />

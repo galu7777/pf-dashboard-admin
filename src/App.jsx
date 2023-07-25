@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import './App.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,8 +10,15 @@ import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
 import PostProduct from './components/PostProduct/PostProduct';
 import BannedUsers from './components/BannedUsers/BannedUsers';
+import { useDispatch } from 'react-redux';
+import { getAllProducts } from './redux/actions';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
   return (
     <div>
       <NavBar />
