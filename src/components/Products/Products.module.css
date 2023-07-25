@@ -1,16 +1,14 @@
 .productContainer{
     display: flex;
     flex-direction: row;
-    gap: 20vh;
+    gap: 100px;
     align-items: center;
-    height: fit-content;
-    width: fit-content;
 }
 
 .guide{
     display: flex;
     flex-direction: row;
-    gap: 22vh;
+    gap: 20px;
 }
 
 .userImage{

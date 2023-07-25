@@ -43,24 +43,35 @@ function Products () {
     return idSortedArray;
 };
 
-
+const handleFilterChange = () => {
+  setCurrentPage(1);
+};
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = applyFilters(productNameSort, idSorted, products).slice(indexOfFirstItem, indexOfLastItem);
 
     return (
-      <Container>
-      <Row className={style.title}>
-          <Col xs={2} className={style.guide}>
-            <ProductIdFilter />
-            <ProductNameFilter />
-              <h4>Vendedor</h4>
-              <h4>Precio</h4>
-              <CategoryFilter />
-              <ProductStatusFilter />
-              <RestartFilters />
-          </Col>
+      <Container fluid>
+      <Row className="d-flex align-items-center">
+        <Col xs={6} sm={4} md={2}>
+          <ProductIdFilter />
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <ProductNameFilter />
+        </Col>
+        <Col xs={6} sm={4}>
+          Precio
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <CategoryFilter onChange={handleFilterChange} />
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <ProductStatusFilter onChange={handleFilterChange} />
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <RestartFilters />
+        </Col>
       </Row>     
       <ListGroup>
         {
