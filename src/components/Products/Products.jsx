@@ -82,6 +82,7 @@ const handleFilterChange = () => {
             image={product.image}
             price={product.price}
             category={product.category}
+            status={product.status}
             />
           ))
         }

@@ -5,14 +5,15 @@ import { GET_ALL_CATEGORIES,
         PRODUCT_ID_FILTER, 
         PRODUCT_ID_SORT, 
         PRODUCT_NAME_FILTER,
-        PRODUCT_NAME_SORT
+        PRODUCT_NAME_SORT,
+        PUT_PRODUCTS
         } 
 from "./actionTypes";
 
 export const getAllProducts = () => {
     return async function (dispatch){
         try {
-            const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF/products")
+            const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF/productsAll")
             return dispatch({
                 type: GET_ALL_PRODUCTS,
                 payload: response.data
@@ -43,6 +44,20 @@ export const getAllUsers = () => {
             const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF/user")
             return dispatch({
                 type: GET_ALL_USERS,
+                payload: response.data
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+}
+
+export const putProducts = (id, updateProducts) => {
+    return async function (dispatch){
+        try {
+            const response = await axios.put(`https://api-market-henry-jczt.onrender.com/PF/products/${id}`, updateProducts)
+            return dispatch({
+                type: PUT_PRODUCTS,
                 payload: response.data
             })
         } catch (error) {
