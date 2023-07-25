@@ -1,10 +1,11 @@
 import axios from "axios"
 import { GET_ALL_CATEGORIES, 
         GET_ALL_PRODUCTS, 
+        GET_ALL_USERS, 
         PRODUCT_ID_FILTER, 
         PRODUCT_ID_SORT, 
         PRODUCT_NAME_FILTER,
-        PRODUCT_NAME_SORT 
+        PRODUCT_NAME_SORT
         } 
 from "./actionTypes";
 
@@ -28,6 +29,20 @@ export const getAllCategories = () => {
             const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF")
             return dispatch({
                 type: GET_ALL_CATEGORIES,
+                payload: response.data
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+}
+
+export const getAllUsers = () => {
+    return async function (dispatch){
+        try {
+            const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF/user")
+            return dispatch({
+                type: GET_ALL_USERS,
                 payload: response.data
             })
         } catch (error) {

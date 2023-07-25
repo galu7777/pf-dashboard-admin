@@ -10,7 +10,7 @@ import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
 import BannedUsers from './components/BannedUsers/BannedUsers';
 import { useDispatch } from 'react-redux';
-import { getAllCategories, getAllProducts } from './redux/actions';
+import { getAllCategories, getAllProducts, getAllUsers } from './redux/actions';
 import Categories from './components/Categories/Categories';
 import './App.css'
 
@@ -19,7 +19,8 @@ function App() {
 
   useEffect(() => {
     dispatch(getAllProducts());
-    dispatch(getAllCategories())
+    dispatch(getAllCategories());
+    dispatch(getAllUsers());
   }, [dispatch]);
   return (
     <div>

@@ -2,11 +2,14 @@ import { connect } from 'react-redux';
 import { VictoryBar, VictoryChart, VictoryTheme } from 'victory';
 import './Home.css';
 
-function Home ({ products }) {
+function Home ({ products, categories, users }) {
 
     const newProducts = products.map((p) => p.price);
+    const newCategories = categories.map((p) => p.name);
+    const newUsers = users.map((p) => p.name);
+    const cantCategories = newCategories.length;
     const cantProducts = newProducts.length;
-    console.log(cantProducts)
+    const cantUsers = newUsers.length;
     
     return (
         <div>
@@ -24,9 +27,9 @@ function Home ({ products }) {
                         data: { fill: "#c43a31" }
                         }}
                         data={[
-                            {x: "Categoria", y: `${24}`},
+                            {x: "usuarios", y: `${cantUsers}`},
+                            {x: "Categoria", y: `${cantCategories}`},
                             {x: "Productos", y: `${cantProducts}`},
-                            {x: "usuarios", y: `${500}`},
                         ]}
                     />
                 </VictoryChart>
@@ -38,7 +41,9 @@ function Home ({ products }) {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products
+        products: state.products,
+        categories: state.categories,
+        users: state.users
     }
 }
 
