@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Nav } from 'react-bootstrap';
 import style from "./adminBar.module.css";
 import { Link } from 'react-router-dom';
