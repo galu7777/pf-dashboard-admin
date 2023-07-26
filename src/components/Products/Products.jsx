@@ -3,17 +3,13 @@ import { Container, Row, Table } from 'react-bootstrap';
 import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
-<<<<<<< HEAD
 // import CategoryFilter from '../Filters/ProductsFilters/CategoryFilter';
-import ProductStatusFilter from '../Filters/ProductsFilters/ProductStatusFilter';
-=======
->>>>>>> 293cd1f226786a76634db4181389bfdd55ba606d
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
 import RestartFilters from '../Filters/ProductsFilters/RestartFilters';
 
 import style from "./Products.module.css";
+import { useSelector } from 'react-redux';
 
 function Products () {
   const products = useSelector((state) => state.products);
@@ -46,11 +42,7 @@ function Products () {
 
     return idSortedArray;
 };
-
-  const handleFilterChange = () => {
-    setCurrentPage(1);
-  };
-
+  
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = applyFilters(productNameSort, idSorted, products).slice(indexOfFirstItem, indexOfLastItem);
@@ -59,7 +51,6 @@ function Products () {
       
       <Container fluid>
         <div className={style.restar}>
-        <ProductStatusFilter onChange={handleFilterChange} />
           <RestartFilters />
         </div>
         <Table striped bordered hover table-bordered>
