@@ -72,7 +72,7 @@ const handleFilterChange = () => {
         <Col xs={6} sm={4} md={2}>
           <RestartFilters />
         </Col>
-      </Row>     
+      </Row>
       <ListGroup>
         {
           currentProducts.map((product) => (
