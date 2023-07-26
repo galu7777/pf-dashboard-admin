@@ -33,11 +33,6 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faListAlt} /> Categorias
           </Link>
         </Nav.Link>
-        <Nav.Link>
-          <Link to="/banned-users" className={style.text}>
-          <FontAwesomeIcon icon={faTrash} />Usuarios baneados
-          </Link>
-        </Nav.Link>
       </Nav>
     </div>
     </Container>

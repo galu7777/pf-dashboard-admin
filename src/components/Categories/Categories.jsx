@@ -42,8 +42,10 @@ function Categories (){
             {/* <ListGroup>
                 {currentCategories.map((category) => (
                     <Category
+                    key={category.id}
                     id={category.id}
                     name={category.name}
+                    image={category.image}
                     />
                 ))}
             </ListGroup> */}

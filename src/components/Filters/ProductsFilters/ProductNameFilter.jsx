@@ -4,7 +4,7 @@ import style from "../Filters.module.css"
 import { useDispatch } from 'react-redux';
 import { productNameFilter, productNameSort } from '../../../redux/actions';
 
-function ProductNameFilter () {
+function ProductNameFilter (props) {
     const [selectedOption, setSelectedOption] = useState(null);
     const [ input, setInput ] = useState("");
     const dispatch = useDispatch();
@@ -17,14 +17,19 @@ function ProductNameFilter () {
     const handleOptionSelect = (option) => {
       setSelectedOption(option);
       if(option === "a-z"){
+        props.setCurrentPage(1)
         dispatch(productNameSort(option))
       } else if (option === "z-a"){
+        props.setCurrentPage(1)
         dispatch(productNameSort(option))
       }
     }
 
+    const capital = input.charAt(0).toUpperCase() + input.slice(1);
+
     const handleClick = () => {
-      dispatch(productNameFilter(input))
+      props.setCurrentPage(1)
+      dispatch(productNameFilter(capital))
     }
     return (
     <Dropdown>

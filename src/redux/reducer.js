@@ -6,13 +6,17 @@ import {
         PRODUCT_ID_SORT, 
         PRODUCT_NAME_FILTER, 
         PRODUCT_NAME_SORT,
+        PUT_PRODUCTS,
+        PUT_USERS,
     } 
 from "./actionTypes"
 
 const initialState = {
     products: [],
+    upProducts: [],
     categories: [],
     users: [],
+    upUsers: [],
     productIdFilter: {},
     productIdSort: "",
     productNameSort: ""
@@ -38,6 +42,18 @@ export const reducer = (state = initialState, { type, payload }) => {
                 users: payload
             }
 
+        case PUT_PRODUCTS:
+            return {
+                ...state,
+                upProducts: payload
+            }
+
+        case PUT_USERS:
+            return {
+                ...state,
+                upUsers: payload
+            }
+
         case PRODUCT_ID_FILTER:
             return{
                 ...state,
@@ -52,11 +68,15 @@ export const reducer = (state = initialState, { type, payload }) => {
             }
 
         case PRODUCT_NAME_FILTER:
-            const nameArr = state.products.filter((product) => product.name.includes(payload))
-            return{
-                ...state,
-                products: nameArr.length === 0 ? products : nameArr
-            }
+            function removeAccents(str) {
+                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+              }
+            const nameArr = state.products.filter((product) => removeAccents(product.name).includes(payload))
+        return{
+            ...state,
+            products: nameArr.length === 0 ? products : nameArr
+        }
+
 
         case PRODUCT_NAME_SORT:
         return{
