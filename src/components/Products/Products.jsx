@@ -10,6 +10,8 @@ import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
 import RestartFilters from '../Filters/ProductsFilters/RestartFilters';
 
+import style from "./Products.module.css";
+
 function Products () {
   const products = useSelector((state) => state.products);
   const idSorted = useSelector((state) => state.productIdSort)
@@ -54,6 +56,10 @@ const handleFilterChange = () => {
     return (
       
       <Container fluid>
+        <div className={style.restar}>
+        <ProductStatusFilter onChange={handleFilterChange} />
+          <RestartFilters />
+        </div>
       <Table striped bordered hover table-bordered>
         <thead>
           <tr>
