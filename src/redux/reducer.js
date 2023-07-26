@@ -12,6 +12,7 @@ from "./actionTypes"
 
 const initialState = {
     products: [],
+    allProducts: [],
     upProducts: [],
     categories: [],
     users: [],
@@ -26,6 +27,7 @@ export const reducer = (state = initialState, { type, payload }) => {
             return{
                 ...state,
                 products: payload,
+                allProducts: payload
             }
 
         case GET_ALL_CATEGORIES:
@@ -63,7 +65,7 @@ export const reducer = (state = initialState, { type, payload }) => {
             function removeAccents(str) {
                 return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
               }
-            const nameArr = state.products.filter((product) => removeAccents(product.name).includes(payload))
+            const nameArr = state.allProducts.filter((product) => removeAccents(product.name).includes(payload))
         return{
             ...state,
             products: nameArr.length === 0 ? products : nameArr
