@@ -57,7 +57,6 @@ function Product({ id, name, image, category, price, status }) {
         {/* Filtrar por estado de venta */}
         {/* <td>Filtrar por estado de venta</td> */}
         {/* Otras columnas si las tienes */}
-        <td>{estado}</td>
         <td>{Category}</td>
         <td>
           {
@@ -65,10 +64,12 @@ function Product({ id, name, image, category, price, status }) {
               ? 
               <button onClick={() => handleButton(0)}>
                 <i className={`bi bi-check-circle p-2`}></i>
+                {estado}
               </button> 
               : 
               <button onClick={() => handleButton(1)}>
-                <i className="bi bi-dash-circle"></i>
+                <i className='bi bi-dash-circle'></i>
+                {estado}
               </button>
           }
         </td>
