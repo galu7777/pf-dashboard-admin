@@ -52,26 +52,26 @@ const handleFilterChange = () => {
 
     return (
       <Container fluid>
-        <Row className="d-flex align-items-center">
-          <Col xs={6} sm={4} md={2}>
-            <ProductIdFilter />
-          </Col>
-          <Col xs={6} sm={4} md={2}>
-            <ProductNameFilter />
-          </Col>
-          <Col xs={6} sm={4}>
-            Precio
-          </Col>
-          <Col xs={6} sm={4} md={2}>
-            <CategoryFilter onChange={handleFilterChange} />
-          </Col>
-          <Col xs={6} sm={4} md={2}>
-            <ProductStatusFilter onChange={handleFilterChange} />
-          </Col>
-          <Col xs={6} sm={4} md={2}>
-            <RestartFilters />
-          </Col>
-        </Row>    
+      <Row className="d-flex align-items-center">
+        <Col xs={6} sm={4} md={2}>
+          <ProductIdFilter setCurrentPage={setCurrentPage}/>
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <ProductNameFilter setCurrentPage={setCurrentPage}/>
+        </Col>
+        <Col xs={6} sm={4}>
+          Precio
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <CategoryFilter onChange={handleFilterChange} />
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <ProductStatusFilter onChange={handleFilterChange} />
+        </Col>
+        <Col xs={6} sm={4} md={2}>
+          <RestartFilters />
+        </Col>
+      </Row>
       <ListGroup>
         {
           currentProducts.map((product) => (
