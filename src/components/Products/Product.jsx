@@ -67,7 +67,11 @@ function Product({ id, name, image, category, price, status }) {
               </button> 
               : 
               <button onClick={() => handleButton(1)}>
+<<<<<<< HEAD
                 <i className={`bi bi-dash-circle`}></i>
+=======
+                <i className='bi bi-dash-circle'></i>
+>>>>>>> 293cd1f226786a76634db4181389bfdd55ba606d
                 {estado}
               </button>
           }
