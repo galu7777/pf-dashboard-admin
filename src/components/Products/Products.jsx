@@ -3,8 +3,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
-import CategoryFilter from '../Filters/ProductsFilters/CategoryFilter';
-import ProductStatusFilter from '../Filters/ProductsFilters/ProductStatusFilter';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
@@ -63,10 +61,9 @@ const handleFilterChange = () => {
           Precio
         </Col>
         <Col xs={6} sm={4} md={2}>
-          <CategoryFilter onChange={handleFilterChange} />
+          <h6>categories</h6>
         </Col>
         <Col xs={6} sm={4} md={2}>
-          <ProductStatusFilter onChange={handleFilterChange} />
         </Col>
         <Col xs={6} sm={4} md={2}>
           <RestartFilters />
