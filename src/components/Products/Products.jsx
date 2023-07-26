@@ -50,6 +50,8 @@ function Products () {
     return (
       
       <Container fluid>
+        {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th>
+        <th><RestartFilters /></th> */}
         <div className={style.restar}>
           <RestartFilters />
         </div>
@@ -61,8 +63,6 @@ function Products () {
               <th>Precio</th>
               <th>Categorias</th>
               <th>Estado</th>
-              {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th>
-              <th><RestartFilters /></th> */}
             </tr>
           </thead>
           <tbody>
