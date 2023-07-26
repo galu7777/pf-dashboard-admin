@@ -7,6 +7,7 @@ import { putProducts } from '../../redux/actions';
 function Product(props) {
   const dispatch = useDispatch();
   const id = props.id;
+
   const handleButton = (value) => {
     const stringNum = String(value)
     const updateProducts = {
@@ -30,19 +31,19 @@ function Product(props) {
         <Col className="p-2">${props.price}</Col>
         <Col className="p-2">{props.category}</Col>
         <Col className="p-2">EDV</Col>
-        
+
         {
           props.status == 1
             ? 
-            <button onClick={() => handleButton(0)} className={{ 'color': 'green' }}>
+            <button onClick={() => handleButton(0)}>
               <i className={`bi bi-check-circle p-2`}></i>
             </button> 
             : 
-            <button onClick={() => handleButton(1)} className={{ 'color': 'red' }}>
+            <button onClick={() => handleButton(1)}>
               <i className="bi bi-dash-circle"></i>
             </button>
         }
-
+        
       </ListGroup.Item>
     </div>
   )

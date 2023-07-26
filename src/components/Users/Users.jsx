@@ -12,23 +12,15 @@ import { connect } from 'react-redux';
 function Users ({ users }) {
     return (
         <Container fluid>
-            <Row className="d-flex align-items-center">
-                <Col xs={6} sm={4} md={2}>
+            <Row className={style.title}>
+                <Col xs={2} className={style.guide}>
                     <IdFilter />
-                </Col>
-                <Col xs={6} sm={4} md={2}>                    
                     <UserNameFilter />
-                </Col>
-                <Col xs={6} sm={4} md={2}>
                     <EmailFilter />
-                </Col>
-                <Col xs={6} sm={4} md={2}>
                     <RolFilter />
-                </Col>
-                <Col xs={6} sm={4} md={2}>
                     <StateFilter />
                 </Col>
-            </Row>     
+            </Row>    
             <ListGroup>
                 {/* Maximo 10 clientes por pagina */}
             {
