@@ -50,16 +50,16 @@ function Products () {
     return (
       
       <Container fluid>
-        {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th>
-        <th><RestartFilters /></th> */}
         <div className={style.restar}>
+        {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th> */}
+        {/* <th><RestartFilters /></th> */}
           <RestartFilters />
         </div>
         <Table striped bordered hover table-bordered>
           <thead>
             <tr>
-              <th><ProductIdFilter /></th>
-              <th><ProductNameFilter /></th>
+              <th><ProductIdFilter setCurrentPage={setCurrentPage}/></th>
+              <th><ProductNameFilter setCurrentPage={setCurrentPage}/></th>
               <th>Precio</th>
               <th>Categorias</th>
               <th>Estado</th>
