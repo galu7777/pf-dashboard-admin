@@ -10,7 +10,7 @@ import style from "./BannedUsers.module.css"
 
 function BannedUsers () {
     return (
-        <Container >
+        <Container fluid >
             <Row className={style.title}>
                 <Col xs={2} className={style.guide}>
                     <IdFilter />

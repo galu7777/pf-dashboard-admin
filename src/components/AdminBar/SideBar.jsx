@@ -1,40 +1,47 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Container, Nav } from 'react-bootstrap';
 import style from "./adminBar.module.css";
 import { Link } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faHome, faBriefcase, faListAlt,faTrash   } from '@fortawesome/free-solid-svg-icons';
 
 
 const Sidebar = () => {
   return (
+    <Container fluid>
     <div className={`d-flex flex-column ${style.sidebarContainer}`}>
       <Nav defaultActiveKey="/home" className={style.textContainer}>
         <Nav.Link>
           <Link to="/home" className={style.text}>
-            Página principal
+          <FontAwesomeIcon icon={faHome} />  Página principal
           </Link>
         </Nav.Link>
+
         <Nav.Link>
           <Link to="/users" className={style.text}>
-            Usuarios
+          <FontAwesomeIcon icon={faUser} /> Usuarios
           </Link>
         </Nav.Link>
+
         <Nav.Link>
           <Link to="/products" className={style.text}>
-            Productos
+          <FontAwesomeIcon icon={faBriefcase} /> Productos
           </Link>
         </Nav.Link>
         <Nav.Link>
           <Link to="/categories" className={style.text}>
-            Categorias
+          <FontAwesomeIcon icon={faListAlt} /> Categorias
           </Link>
         </Nav.Link>
         <Nav.Link>
           <Link to="/banned-users" className={style.text}>
-            Usuarios baneados
+          <FontAwesomeIcon icon={faTrash} />Usuarios baneados
           </Link>
         </Nav.Link>
       </Nav>
     </div>
+    </Container>
   );
 };
 

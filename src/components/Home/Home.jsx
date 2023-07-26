@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { VictoryBar, VictoryChart, VictoryTheme } from 'victory';
 import './Home.css';
+import { Col, Container, Row } from 'react-bootstrap';
 
 function Home ({ products, categories, users }) {
 
@@ -12,8 +13,9 @@ function Home ({ products, categories, users }) {
     const cantUsers = newUsers.length;
     
     return (
-        <div>
-
+        <Container fluid>
+            <Row>
+                <Col md={12}>
             <h1 className='container'>Graficos Estadisticos</h1>
 
             <div>
@@ -34,8 +36,9 @@ function Home ({ products, categories, users }) {
                     />
                 </VictoryChart>
             </div>
-            
-        </div>
+            </Col>
+            </Row>
+            </Container>
     )
 }
 

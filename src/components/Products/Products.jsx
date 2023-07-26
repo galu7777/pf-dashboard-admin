@@ -1,6 +1,6 @@
-import ListGroup from 'react-bootstrap/ListGroup';
-import { Col, Container, Row } from 'react-bootstrap';
-import Product from './Product';
+
+import { Container, Row, Table } from 'react-bootstrap';
+
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
 import CategoryFilter from '../Filters/ProductsFilters/CategoryFilter';
@@ -50,42 +50,35 @@ const handleFilterChange = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = applyFilters(productNameSort, idSorted, products).slice(indexOfFirstItem, indexOfLastItem);
 
+
     return (
+      
       <Container fluid>
-      <Row className="d-flex align-items-center">
-        <Col xs={6} sm={4} md={2}>
-          <ProductIdFilter />
-        </Col>
-        <Col xs={6} sm={4} md={2}>
-          <ProductNameFilter />
-        </Col>
-        <Col xs={6} sm={4}>
-          Precio
-        </Col>
-        <Col xs={6} sm={4} md={2}>
-          <CategoryFilter onChange={handleFilterChange} />
-        </Col>
-        <Col xs={6} sm={4} md={2}>
-          <ProductStatusFilter onChange={handleFilterChange} />
-        </Col>
-        <Col xs={6} sm={4} md={2}>
-          <RestartFilters />
-        </Col>
-      </Row>     
-      <ListGroup>
-        {
-          currentProducts.map((product) => (
-            <Product
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            image={product.image}
-            price={product.price}
-            category={product.category}
-            />
-          ))
-        }
-      </ListGroup>
+      <Table striped bordered hover table-bordered>
+        <thead>
+          <tr>
+            <th><ProductIdFilter /></th>
+            <th><ProductNameFilter /></th>
+            <th>Precio</th>
+            <th><CategoryFilter onChange={handleFilterChange} /></th>
+            {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th>
+            <th><RestartFilters /></th> */}
+          </tr>
+        </thead>
+        <tbody>
+  {currentProducts.map((product) => (
+    <tr key={product.id}>
+      <td>{product.id}</td>
+      <td> <img src={product.image} alt={product.name} style={{ width: '50px' }} /> {product.name} </td>
+      <td>{product.price}</td>
+      <td>{product.category}</td>
+      {/* Filtrar por estado de venta */}
+      {/* <td>Filtrar por estado de venta</td> */}
+      {/* Otras columnas si las tienes */}
+    </tr>
+  ))}
+</tbody>
+      </Table>
       <Row>
         <PaginationComponent 
         currentPage={currentPage}
