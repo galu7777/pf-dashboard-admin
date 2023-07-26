@@ -30,6 +30,7 @@ function Product(props) {
         <Col className="p-2">${props.price}</Col>
         <Col className="p-2">{props.category}</Col>
         <Col className="p-2">EDV</Col>
+        
         {
           props.status == 1
             ? 
@@ -41,6 +42,7 @@ function Product(props) {
               <i className="bi bi-dash-circle"></i>
             </button>
         }
+
       </ListGroup.Item>
     </div>
   )
