@@ -4,12 +4,12 @@ import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
 // import CategoryFilter from '../Filters/ProductsFilters/CategoryFilter';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
 import RestartFilters from '../Filters/ProductsFilters/RestartFilters';
 
 import style from "./Products.module.css";
-import { useSelector } from 'react-redux';
 
 function Products () {
   const products = useSelector((state) => state.products);
@@ -79,7 +79,6 @@ function Products () {
               ))}
         </tbody>
         </Table>
-
       <Row>
         <PaginationComponent 
         currentPage={currentPage}

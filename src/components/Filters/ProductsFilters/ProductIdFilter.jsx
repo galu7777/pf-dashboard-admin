@@ -29,6 +29,13 @@ function ProductIdFilter (props) {
       props.setCurrentPage(1)
       dispatch(productIdFilter(input))
     }
+    
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        handleClick()
+      }
+    };
 
     return (
     <Dropdown>
@@ -42,6 +49,7 @@ function ProductIdFilter (props) {
           placeholder="Escribe aquí"
           value={input}
           onChange={(e) => inputHandler(e)}
+          onKeyPress={handleKeyPress}
           />
           <button onClick={() => handleClick()}>
             <i class="bi bi-search" ></i>

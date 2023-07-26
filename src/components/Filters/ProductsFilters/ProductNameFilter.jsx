@@ -31,6 +31,14 @@ function ProductNameFilter (props) {
       props.setCurrentPage(1)
       dispatch(productNameFilter(capital))
     }
+
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        handleClick()
+      }
+    };
+
     return (
     <Dropdown>
       <Dropdown.Toggle variant="transparent">
@@ -44,6 +52,7 @@ function ProductNameFilter (props) {
           placeholder="nombre"
           value={input}
           onChange={(e) => inputHandler(e)}
+          onKeyPress={handleKeyPress}
           />
         <button onClick={() => handleClick()}>
             <i class="bi bi-search" ></i>
