@@ -6,7 +6,8 @@ import { GET_ALL_CATEGORIES,
         PRODUCT_ID_SORT, 
         PRODUCT_NAME_FILTER,
         PRODUCT_NAME_SORT,
-        PUT_PRODUCTS
+        PUT_PRODUCTS,
+        PUT_USERS
         } 
 from "./actionTypes";
 
@@ -41,7 +42,7 @@ export const getAllCategories = () => {
 export const getAllUsers = () => {
     return async function (dispatch){
         try {
-            const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF/user")
+            const response = await axios.get("https://api-market-henry-jczt.onrender.com/PF/userAll")
             return dispatch({
                 type: GET_ALL_USERS,
                 payload: response.data
@@ -58,6 +59,20 @@ export const putProducts = (id, updateProducts) => {
             const response = await axios.put(`https://api-market-henry-jczt.onrender.com/PF/products/${id}`, updateProducts)
             return dispatch({
                 type: PUT_PRODUCTS,
+                payload: response.data
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+}
+
+export const putUsers = (id, updateUsers) => {
+    return async function (dispatch){
+        try {
+            const response = await axios.put(`https://api-market-henry-jczt.onrender.com/PF/user/${id}`, updateUsers)
+            return dispatch({
+                type: PUT_USERS,
                 payload: response.data
             })
         } catch (error) {

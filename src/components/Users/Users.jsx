@@ -7,34 +7,54 @@ import IdFilter from '../Filters/UsersFilters/userFilters/IdFilter';
 import UserNameFilter from '../Filters/UsersFilters/userFilters/UserNameFilter';
 import EmailFilter from '../Filters/UsersFilters/userFilters/EmailFilter';
 import StateFilter from '../Filters/UsersFilters/userFilters/StateFilter';
+import { connect } from 'react-redux';
 
-function Users () {
+function Users ({ users }) {
     return (
-<Container >
-    <Row className={style.title}>
-        <Col xs={2} className={style.guide}>
-            <IdFilter />
-            <UserNameFilter />
-            <EmailFilter />
-            <RolFilter />
-            <StateFilter />
-        </Col>
-    </Row>     
-    <ListGroup>
-        {/* Maximo 10 clientes por pagina */}
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-    </ListGroup>
-</Container>
+        <Container fluid>
+            <Row className="d-flex align-items-center">
+                <Col xs={6} sm={4} md={2}>
+                    <IdFilter />
+                </Col>
+                <Col xs={6} sm={4} md={2}>                    
+                    <UserNameFilter />
+                </Col>
+                <Col xs={6} sm={4} md={2}>
+                    <EmailFilter />
+                </Col>
+                <Col xs={6} sm={4} md={2}>
+                    <RolFilter />
+                </Col>
+                <Col xs={6} sm={4} md={2}>
+                    <StateFilter />
+                </Col>
+            </Row>     
+            <ListGroup>
+                {/* Maximo 10 clientes por pagina */}
+            {
+                users.map((user) => (
+                    <User
+                        key={user.id}
+                        id={user.id}
+                        full_name={user.full_name}
+                        email={user.email}
+                        password={user.password}
+                        phone={user.phone}
+                        direction_shipping={user.direction_shipping}
+                        status={user.status}
+                        role={user.role}
+                    />
+                ))
+            }     
+            </ListGroup>
+        </Container>
     )
 }
 
-export default Users;
+const mapStateToProps = (state) => {
+    return {
+        users: state.users,
+    }
+}
+
+export default connect(mapStateToProps, null)(Users);
