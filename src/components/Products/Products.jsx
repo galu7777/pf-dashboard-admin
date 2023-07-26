@@ -1,6 +1,6 @@
 
 import { Container, Row, Table } from 'react-bootstrap';
-
+import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
 import CategoryFilter from '../Filters/ProductsFilters/CategoryFilter';
@@ -49,8 +49,7 @@ const handleFilterChange = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = applyFilters(productNameSort, idSorted, products).slice(indexOfFirstItem, indexOfLastItem);
-
-
+  
     return (
       
       <Container fluid>
@@ -61,22 +60,24 @@ const handleFilterChange = () => {
               <th><ProductIdFilter /></th>
               <th><ProductNameFilter /></th>
               <th>Precio</th>
+              <th>Estado</th>
               <th><CategoryFilter onChange={handleFilterChange} /></th>
+              <th>Desabilitado</th>
               {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th>
               <th><RestartFilters /></th> */}
             </tr>
           </thead>
           <tbody>
               {currentProducts.map((product) => (
-                <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td> <img src={product.image} alt={product.name} style={{ width: '50px' }} /> {product.name} </td>
-                  <td>{product.price}</td>
-                  <td>{product.category}</td>
-                  {/* Filtrar por estado de venta */}
-                  {/* <td>Filtrar por estado de venta</td> */}
-                  {/* Otras columnas si las tienes */}
-                </tr>
+                <Product
+                  key={product.id}
+                  id={product.id}
+                  image={product.image}
+                  name={product.name}
+                  price={product.price}
+                  category={product.Categories}
+                  status={product.status}
+                />
               ))}
         </tbody>
         </Table>

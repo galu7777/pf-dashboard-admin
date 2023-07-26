@@ -6,7 +6,7 @@ import { putUsers } from '../../redux/actions';
 
 function User ({ id, full_name, email, status, role, image }) {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     let boolean = false;
     
     const rol = role === 1 ? "usuario" : "admin";
@@ -20,8 +20,7 @@ function User ({ id, full_name, email, status, role, image }) {
         }
         console.log(updateUsers)
         dispatch(putUsers(id, updateUsers))
-        alert(`el usuario ${full_name} a sido ${estadoAlert}`)
-        navigate('/home')   
+        alert(`el usuario ${full_name} a sido ${estadoAlert}`)   
     }
 
     return (

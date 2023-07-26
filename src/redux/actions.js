@@ -56,7 +56,7 @@ export const getAllUsers = () => {
 export const putProducts = (id, updateProducts) => {
     return async function (dispatch){
         try {
-            const response = await axios.put(`https://api-market-henry-jczt.onrender.com/PF/products/${id}`, updateProducts)
+            const response = await axios.put(`https://api-market-henry-jczt.onrender.com/PF/product/${id}`, updateProducts)
             return dispatch({
                 type: PUT_PRODUCTS,
                 payload: response.data
