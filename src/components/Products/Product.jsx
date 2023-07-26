@@ -17,6 +17,7 @@ function Product (props) {
                     <i class={`bi bi-check-circle p-2`}></i>
             </ListGroup.Item>
         </div>
+        
     )
 }
 
