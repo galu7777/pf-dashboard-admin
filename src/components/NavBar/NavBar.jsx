@@ -6,7 +6,7 @@ function NavBar () {
     return (
     <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand>Mercado Henry</Navbar.Brand>
+          <Navbar.Brand>One</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>

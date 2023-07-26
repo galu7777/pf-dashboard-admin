@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Dropdown, Form } from 'react-bootstrap';
 import style from "../Filters.module.css"
 import { useDispatch } from 'react-redux';

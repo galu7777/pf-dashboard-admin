@@ -9,26 +9,28 @@ import Users from './components/Users/Users';
 import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
 import { useDispatch } from 'react-redux';
-import { getAllCategories, getAllProducts } from './redux/actions';
+import { getAllCategories, getAllProducts, getAllUsers } from './redux/actions';
 import Categories from './components/Categories/Categories';
 import PostCategory from './components/PostCategory/PostCategory';
+
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProducts());
-    dispatch(getAllCategories())
+    dispatch(getAllCategories());
+    dispatch(getAllUsers());
   }, [dispatch]);
   return (
     <div>
       <NavBar />
-      <div className="container-fluid">
+      <div className="container-fluid fondo">
         <div className="row">
-          <div className="col-2">
+          <div className="col-3">
             <AdminBar />
           </div>
-          <div className="col-10">
+          <div className="col-8 fondo">
             <Routes>
               <Route index element={<Home />} />
               <Route path="*" element={<Home />} />

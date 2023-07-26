@@ -1,8 +1,20 @@
-import { GET_ALL_CATEGORIES, GET_ALL_PRODUCTS, PRODUCT_ID_FILTER, PRODUCT_ID_SORT, PRODUCT_NAME_FILTER, PRODUCT_NAME_SORT } from "./actionTypes"
+import {
+        GET_ALL_PRODUCTS,
+        GET_ALL_CATEGORIES,
+        GET_ALL_USERS,
+        PRODUCT_ID_FILTER, 
+        PRODUCT_ID_SORT, 
+        PRODUCT_NAME_FILTER, 
+        PRODUCT_NAME_SORT,
+        PUT_PRODUCTS,
+    } 
+from "./actionTypes"
 
 const initialState = {
     products: [],
+    upProducts: [],
     categories: [],
+    users: [],
     productIdFilter: {},
     productIdSort: "",
     productNameSort: ""
@@ -20,6 +32,18 @@ export const reducer = (state = initialState, { type, payload }) => {
             return{
                 ...state,
                 categories: payload
+            }
+
+        case GET_ALL_USERS:
+            return{
+                ...state,
+                users: payload
+            }
+
+        case PUT_PRODUCTS:
+            return {
+                ...state,
+                upProducts: payload
             }
 
         case PRODUCT_ID_FILTER:
@@ -44,6 +68,7 @@ export const reducer = (state = initialState, { type, payload }) => {
             ...state,
             products: nameArr.length === 0 ? products : nameArr
         }
+
 
         case PRODUCT_NAME_SORT:
         return{

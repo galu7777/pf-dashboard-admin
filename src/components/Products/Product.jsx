@@ -1,6 +1,8 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import style from "./Products.module.css";
 import Col from 'react-bootstrap/Col';
+import { useDispatch } from 'react-redux';
+import { putProducts } from '../../redux/actions';
 
 function Product (props) {
     return (
@@ -19,6 +21,7 @@ function Product (props) {
         </div>
         
     )
+
 }
 
 export default Product;
