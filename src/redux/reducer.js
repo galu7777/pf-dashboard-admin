@@ -68,11 +68,15 @@ export const reducer = (state = initialState, { type, payload }) => {
             }
 
         case PRODUCT_NAME_FILTER:
-            const nameArr = state.products.filter((product) => product.name.includes(payload))
-            return{
-                ...state,
-                products: nameArr.length === 0 ? products : nameArr
-            }
+            function removeAccents(str) {
+                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+              }
+            const nameArr = state.products.filter((product) => removeAccents(product.name).includes(payload))
+        return{
+            ...state,
+            products: nameArr.length === 0 ? products : nameArr
+        }
+
 
         case PRODUCT_NAME_SORT:
         return{

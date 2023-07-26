@@ -79,6 +79,7 @@ function Products () {
               ))}
         </tbody>
         </Table>
+
       <Row>
         <PaginationComponent 
         currentPage={currentPage}
