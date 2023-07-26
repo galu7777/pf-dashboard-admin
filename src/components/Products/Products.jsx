@@ -55,10 +55,10 @@ const handleFilterChange = () => {
       <Container fluid>
       <Row className="d-flex align-items-center">
         <Col xs={6} sm={4} md={2}>
-          <ProductIdFilter />
+          <ProductIdFilter setCurrentPage={setCurrentPage}/>
         </Col>
         <Col xs={6} sm={4} md={2}>
-          <ProductNameFilter />
+          <ProductNameFilter setCurrentPage={setCurrentPage}/>
         </Col>
         <Col xs={6} sm={4}>
           Precio

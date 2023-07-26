@@ -4,7 +4,7 @@ import style from "../Filters.module.css"
 import { useDispatch } from 'react-redux';
 import { productIdFilter, productIdSort } from '../../../redux/actions';
 
-function ProductIdFilter () {
+function ProductIdFilter (props) {
     const [ selectedOption, setSelectedOption ] = useState(null);
     const [ input, setInput ] = useState("");
     const dispatch = useDispatch();
@@ -17,13 +17,16 @@ function ProductIdFilter () {
     const handleOptionSelect = (option) => {
       setSelectedOption(option);
       if(option === "asc"){
+        props.setCurrentPage(1)
         dispatch(productIdSort(option))
       } else if (option === "des"){
+        props.setCurrentPage(1)
         dispatch(productIdSort(option))
       }
     }
 
     const handleClick = () => {
+      props.setCurrentPage(1)
       dispatch(productIdFilter(input))
     }
 
