@@ -3,7 +3,7 @@ import style from "./adminBar.module.css";
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faHome, faBriefcase, faListAlt,faTrash   } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faHome, faBriefcase,faListAlt   } from '@fortawesome/free-solid-svg-icons';
 
 
 const Sidebar = () => {

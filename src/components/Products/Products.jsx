@@ -73,6 +73,7 @@ function Products () {
                   image={product.image}
                   name={product.name}
                   price={product.price}
+                  
                   category={product.Categories}
                   status={product.status}
                 />

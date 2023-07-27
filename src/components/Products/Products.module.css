@@ -41,3 +41,21 @@
     display: flex;
     margin-left: 40%;
 }
+
+.buttonHabilidato{
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.buttonDeshabilidato:hover{
+    background-color: #fefefe;
+}
+
+.buttonHabilidato:hover{
+    background-color: #fefefe;
+}
+
+.buttonDeshabilidato{
+    background-color: #d2322d;
+    border-color: #ac2925;
+}
