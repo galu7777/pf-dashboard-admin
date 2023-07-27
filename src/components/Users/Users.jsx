@@ -13,23 +13,23 @@ import style from "./Users.module.css"
 function Users ({ users }) {
     return (
         <Container fluid>
-            <div className={style.restar}>
+            {/* <div className={style.restar}>
                 <IdFilter />
                 <UserNameFilter />
                 <EmailFilter />
                 <RolFilter />
                 <StateFilter />
-            </div>    
+            </div>     */}
             <Table striped bordered hover table-bordered>
                 <thead>
                     <tr>
                     {/* <th><ProductIdFilter setCurrentPage={setCurrentPage}/></th>
                     <th><ProductNameFilter setCurrentPage={setCurrentPage}/></th> */}
-                    <th>Id</th>
-                    <th>Image</th>
-                    <th>Email</th>
-                    <th>Rol</th>
-                    <th>Estado</th>
+                    <th><IdFilter /></th>
+                    <th><UserNameFilter /></th>
+                    <th><EmailFilter /></th>
+                    <th><RolFilter /></th>
+                    <th><StateFilter /></th>
                     </tr>
                 </thead>
                 <tbody>
