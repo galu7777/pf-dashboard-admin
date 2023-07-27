@@ -28,7 +28,7 @@ function UserNameFilter (props) {
     
     const handleClick = () => {
       props.setCurrentPage(1)
-      dispatch(usersNameFilter(capital))
+      dispatch(usersNameFilter(input))
     }
 
     const handleKeyPress = (event) => {

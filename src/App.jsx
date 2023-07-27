@@ -26,12 +26,17 @@ function App() {
     const response = await axios("https://api-market-henry-jczt.onrender.com/PF/userAll");
     const data = response.data;
     const userFilter = data.filter((user) => user.email === email && user.password === password)
-    const userRole = userFilter[0].role === 2;
-    if (userRole === true) {
-      setAccess(true);
-      navigate('/home');
-    }    
-    console.log(access)
+    if (userFilter.length > 0) {
+      const userRole = userFilter[0].role === 2;
+      if (userRole) {
+        setAccess(true);
+        navigate('/home');
+      } else {
+        console.log("User is not authorized to access.");
+      }
+    } else {
+      console.log("User not found.");
+    }
   };
 
   useEffect(() => {
