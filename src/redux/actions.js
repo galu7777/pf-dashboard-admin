@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_ALL_CATEGORIES, 
+import { EDIT_CATEGORY, GET_ALL_CATEGORIES, 
         GET_ALL_PRODUCTS, 
         GET_ALL_USERS, 
         PRODUCT_ID_FILTER, 
@@ -98,5 +98,45 @@ export const productNameSort = (order) => {
     return{
         type: PRODUCT_NAME_SORT,
         payload: order
+    }
+}
+
+export const editCategory = (id, image, name) => {
+    return async function (dispatch){
+        try {
+            if(image && name){
+                const obj = {
+                    image,
+                    name
+                }
+
+                await axios.put(`https://api-market-henry-jczt.onrender.com/pf/category/${id}`, obj)
+                return dispatch({
+                    type: EDIT_CATEGORY,
+                })        
+
+            }
+            if(image && !name){
+                const obj = {
+                    image
+                }
+                 await axios.put(`https://api-market-henry-jczt.onrender.com/pf/category/${id}`, obj)
+                return dispatch({
+                    type: EDIT_CATEGORY,
+                })            
+            }
+            if(!image && name){
+                const obj = {
+                    name
+                }
+                await axios.put(`https://api-market-henry-jczt.onrender.com/pf/category/${id}`, obj)
+                return dispatch({
+                    type: EDIT_CATEGORY
+                })
+            }
+            return null;
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 }
