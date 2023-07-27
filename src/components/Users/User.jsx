@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
-import ListGroup from 'react-bootstrap/ListGroup';
+import { useDispatch } from 'react-redux';import ListGroup from 'react-bootstrap/ListGroup';
 import style from "./Users.module.css"
 import { getAllUsers, putUsers } from '../../redux/actions';
 import Swal from 'sweetalert2';
+import userImage from '../../assets/userIma.jpg'
 
 
 function User({ id, full_name, email, status, role, image }) {
@@ -49,7 +49,7 @@ function User({ id, full_name, email, status, role, image }) {
     return (
             <tr>
                 <td>{id}</td>
-                <td> <img src={image} alt={full_name} style={{ width: '50px' }} /></td>
+                <td> <img src={image ? image : userImage} alt={full_name} style={{ width: '50px' }} /></td>
                 <td>{full_name}</td>
                 <td>{email}</td>
                 <td>

@@ -26,7 +26,8 @@ function App() {
     const response = await axios("https://api-market-henry-jczt.onrender.com/PF/userAll");
     const data = response.data;
     const userFilter = data.filter((user) => user.email === email && user.password === password)
-    const userRole = userFilter[0].role === 2;
+    const userEnable = userFilter.filter((user) => user.status === 1)
+    const userRole = userEnable[0].role === 2;
     if (userRole === true) {
       setAccess(true);
       navigate('/home');
@@ -55,7 +56,7 @@ function App() {
           <div className="col-10 fondo">
             <Routes>
               {/* <Route index element={<Home />} /> */}
-              <Route path="/" element={<Form login={handleLogin} />} />
+              <Route path="/" element={<Form login={handleLogin}/>}/>
               <Route path="/home" element={<Home />} />
               <Route path="/users" element={<Users />} />
               <Route path='/products' element={<Products />} />

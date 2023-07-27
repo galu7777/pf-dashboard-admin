@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import './Form.css';
-import Swal from 'sweetalert2';
 
-export default function Form({login}) {
+export default function Form({login }) {
   const [userData, setUserData] = useState({
     email: '',
     password: ''
@@ -19,7 +18,6 @@ export default function Form({login}) {
   const handleSubmit = (event) => {
     event.preventDefault();    
     login(userData);
-    Swal.fire('Bienvenido admin', `Te Logeaste Exitosamente`, 'success')
   }
 
   return (
