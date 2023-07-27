@@ -7,6 +7,7 @@ import IdFilter from '../Filters/UsersFilters/userFilters/IdFilter';
 import UserNameFilter from '../Filters/UsersFilters/userFilters/UserNameFilter';
 import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
+import RestartUserFilters from "../Filters/UsersFilters/RestartUserFilters";
 
 function Users () {
     const users = useSelector(state => state.users)
@@ -74,6 +75,7 @@ function Users () {
     </tbody>
     </Table>
      <Row>
+        <RestartUserFilters />
         <PaginationComponent 
         currentPage={currentPage}
         totalPages={Math.ceil(users.length / itemsPerPage)}

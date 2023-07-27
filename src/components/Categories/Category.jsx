@@ -39,7 +39,7 @@ function Category (props) {
             })
         }
     return (
-        <ListGroup.Item action variant="light" className="d-flex align-items-center">
+        <tr action variant="light" className="d-flex align-items-center">
                 <Col className="p-2">{props.id}</Col>
                 {!editMode ? 
                 <img className={style.userImage} src={props.image} alt="category image" />
@@ -58,7 +58,7 @@ function Category (props) {
                 <button onClick={handleClick} style={{background:"transparent", border:"0px transparent solid"}}>
                     <i class="bi bi-pencil"></i>
                 </button>
-        </ListGroup.Item>
+        </tr>
     )
 }
 
