@@ -8,13 +8,14 @@ function Product({ id, name, image, category, price, status }) {
   const dispatch = useDispatch();
   const estado = status === 1 ? "habilitado" : "inhabilitado";
   const estadoAlert = estado === "inhabilitado" ? "habilitado" : "inhabilitado";
-  const Category = category[0].name;
-
+  const Category = category && category.length > 0 ? category[0].name : "N/A";
+  
   const handleButton = (value) => {
     const stringNum = String(value)
     const updateProducts = {
         status: stringNum
     }
+
     console.log(updateProducts)
     dispatch(putProducts(id, updateProducts))
     Swal.fire('El Cambio de Estado', `El producto "${name}" a sido ${estadoAlert}`, 'success')

@@ -68,7 +68,7 @@ export const reducer = (state = initialState, { type, payload }) => {
         case PRODUCT_ID_FILTER:
             return{
                 ...state,
-                products: payload.name ? [payload] : products
+                products: payload.name ? [payload] : state.products
             }
         
         case PRODUCT_ID_SORT:
