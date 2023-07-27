@@ -1,5 +1,4 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 // import Sidebar from './SideBar';
 import style from "./adminBar.module.css";
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHome, faBriefcase,faListAlt, faPlusCircle, faRightFromBracket  } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function AdminBar ({ setAccess }) {
     const handleLogOut = () => {
+        Swal.fire('¡Has cerrado sesión exitosamente!', 'Esperamos verte pronto nuevamente.', 'warning')
         setAccess(false);
     }
     return (
@@ -37,7 +38,7 @@ function AdminBar ({ setAccess }) {
           <FontAwesomeIcon icon={faPlusCircle} /> Crear Categoria
           </Link>
 
-          <button className={style.buttonDeshabilidato}>
+          <button onClick={handleLogOut} className={style.buttonDeshabilidato}>
             <FontAwesomeIcon icon={faRightFromBracket} /> Logout
           </button>
       </Container>
