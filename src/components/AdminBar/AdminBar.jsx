@@ -5,11 +5,14 @@ import style from "./adminBar.module.css";
 import Navbar from 'react-bootstrap/Navbar';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faHome, faBriefcase,faListAlt, faPlusCircle  } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faHome, faBriefcase,faListAlt, faPlusCircle, faRightFromBracket  } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
 
-function AdminBar () {
+function AdminBar ({ setAccess }) {
+    const handleLogOut = () => {
+        setAccess(false);
+    }
     return (
         <Navbar expand="lg" className={`flex-grow-1 ${style.container}`}>
       <Container className="flex-column">
@@ -34,6 +37,9 @@ function AdminBar () {
           <FontAwesomeIcon icon={faPlusCircle} /> Crear Categoria
           </Link>
 
+          <button className={style.buttonDeshabilidato}>
+            <FontAwesomeIcon icon={faRightFromBracket} /> Logout
+          </button>
       </Container>
     </Navbar>
     )

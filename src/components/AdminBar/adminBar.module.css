@@ -21,3 +21,13 @@
 .textContainer{
   margin-top: 10px;
 }
+
+.buttonDeshabilidato{
+  color:white;
+  background-color: #d2322d;
+  border-color: #ac2925;
+}
+
+.buttonDeshabilidato:hover{
+  background-color: #860e0a;
+}
