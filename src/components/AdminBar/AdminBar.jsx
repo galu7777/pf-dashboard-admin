@@ -33,10 +33,6 @@ function AdminBar ({ setAccess }) {
           <Link to="/categories" className={style.text}>
           <FontAwesomeIcon icon={faListAlt} /> Categorias
           </Link>
-          
-          <Link to="/post-category" className={style.text}>
-          <FontAwesomeIcon icon={faPlusCircle} /> Crear Categoria
-          </Link>
 
           <button onClick={handleLogOut} className={style.buttonDeshabilidato}>
             <FontAwesomeIcon icon={faRightFromBracket} /> Logout

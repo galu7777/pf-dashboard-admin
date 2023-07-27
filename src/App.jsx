@@ -9,7 +9,6 @@ import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
 import { getAllCategories, getAllProducts, getAllUsers } from './redux/actions';
 import Categories from './components/Categories/Categories';
-import PostCategory from './components/PostCategory/PostCategory';
 import Form from './components/Form/Form';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -59,9 +58,8 @@ function App() {
               <Route path="/" element={<Form login={handleLogin} />} />
               <Route path="/home" element={<Home />} />
               <Route path="/users" element={<Users />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/post-category" element={<PostCategory />} />
+              <Route path='/products' element={<Products />} />
+              <Route path='/categories' element={<Categories />}/>
             </Routes>
           </div>
         </div>

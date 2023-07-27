@@ -1,16 +1,14 @@
-.userContainer{
+.productContainer{
     display: flex;
     flex-direction: row;
-    gap: 20vh;
+    gap: 100px;
     align-items: center;
-    height: fit-content;
-    width: fit-content;
 }
 
 .guide{
     display: flex;
     flex-direction: row;
-    gap: 22vh;
+    gap: 20px;
 }
 
 .userImage{
@@ -26,14 +24,40 @@
     gap: 10px
 }
 
-.userId{
+.productId{
     text-align: start;
 }
 
 .title{
     text-align: center;
 }
+
+.priceInputs{
+    display: flex;
+    flex-direction: column;
+}
+
 .restar{
     display: flex;
     margin-left: 40%;
+}
+
+.buttonHabilidato{
+    color:white;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
+.buttonDeshabilidato:hover{
+    background-color: #860e0a;
+}
+
+.buttonHabilidato:hover{
+    background-color: #126712;
+}
+
+.buttonDeshabilidato{
+    color:white;
+    background-color: #d2322d;
+    border-color: #ac2925;
 }
