@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Form.css';
+import logoMarca from '../../assets/logoMarca.jpg';
 
 export default function Form({login }) {
   const [userData, setUserData] = useState({
@@ -26,6 +27,7 @@ export default function Form({login }) {
         <form onSubmit={handleSubmit} className='form'>               
             
             <div className='div-form'>
+                <img src={logoMarca} alt="" width={'340px'} height={'135px'}/>
                 
                 <div className='ctn-label'>
                   <label htmlFor="email" className='label'>Email: </label>
@@ -51,7 +53,7 @@ export default function Form({login }) {
                   placeholder='Ingresa tu contraseña'
                 />
 
-                <button className='btn'><span className='spn'>Submit</span><i></i></button>
+                <button className='btn-form'><span className='spn'>Submit</span><i></i></button>
             </div>
             
         </form>
