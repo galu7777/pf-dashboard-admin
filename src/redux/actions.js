@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_ALL_CATEGORIES, 
+import { EDIT_CATEGORY, GET_ALL_CATEGORIES, 
         GET_ALL_PRODUCTS, 
         GET_ALL_USERS, 
         PRODUCT_ID_FILTER, 
@@ -7,6 +7,10 @@ import { GET_ALL_CATEGORIES,
         PRODUCT_NAME_FILTER,
         PRODUCT_NAME_SORT,
         PUT_PRODUCTS,
+        USERS_ID_FILTER,
+        USERS_ID_SORT,
+        USERS_NAME_FILTER,
+        USERS_NAME_SORT,
         PUT_USERS
         } 
 from "./actionTypes";
@@ -113,5 +117,77 @@ export const productNameSort = (order) => {
     return{
         type: PRODUCT_NAME_SORT,
         payload: order
+    }
+}
+
+export const usersIdFilter = (id) => {
+    return{
+        type: USERS_ID_FILTER,
+        payload: id
+    }
+}
+
+export const usersIdSort = (order) => {
+    return{
+        type: USERS_ID_SORT,
+        payload: order
+    }
+}
+
+export const usersNameFilter = (name) => {
+    return{
+        type: USERS_NAME_FILTER,
+        payload: name
+    }
+}
+
+export const usersNameSort = (order) => {
+    return{
+        type: USERS_NAME_SORT,
+        payload: order
+    }
+}
+
+export const editCategory = (id, image, name) => {
+    return async function (dispatch){
+        try {
+            if(image && name){
+                const formData = new FormData();
+                formData.append('image', image);
+                formData.append('name', name);
+                await axios.put(`https://api-market-henry-jczt.onrender.com/pf/category/${id}`, formData, {
+                headers: {
+               'Content-Type': 'multipart/form-data', 
+                },
+            });
+                return dispatch({
+                    type: EDIT_CATEGORY,
+                })        
+            }
+            if(image && !name){
+                const formData = new FormData();
+                formData.append('image', image);
+                await axios.put(`https://api-market-henry-jczt.onrender.com/pf/category/${id}`, formData, {
+                headers: {
+               'Content-Type': 'multipart/form-data', 
+                },
+            });
+                return dispatch({
+                    type: EDIT_CATEGORY,
+                })        
+            }
+            if(!image && name){
+                const obj = {
+                    name
+                }
+                await axios.put(`https://api-market-henry-jczt.onrender.com/pf/category/${id}`, obj)
+                return dispatch({
+                    type: EDIT_CATEGORY
+                })
+            }
+            return null;
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 }

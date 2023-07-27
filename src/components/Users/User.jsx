@@ -4,6 +4,7 @@ import style from "./Users.module.css"
 import { getAllUsers, putUsers } from '../../redux/actions';
 import Swal from 'sweetalert2';
 
+
 function User({ id, full_name, email, status, role, image }) {
     const dispatch = useDispatch();
     // const navigate = useNavigate();
