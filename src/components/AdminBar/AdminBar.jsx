@@ -4,6 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import style from "./adminBar.module.css";
 import Navbar from 'react-bootstrap/Navbar';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faHome, faBriefcase,faListAlt, faPlusCircle  } from '@fortawesome/free-solid-svg-icons';
+
 import { Link } from 'react-router-dom';
 
 function AdminBar () {
@@ -12,23 +15,23 @@ function AdminBar () {
       <Container className="flex-column">
 
           <Link to="/home" className={style.text}>
-            Página principal
+          <FontAwesomeIcon icon={faHome} /> Página principal
           </Link>
           
           <Link to="/users" className={style.text}>
-            Usuarios
+          <FontAwesomeIcon icon={faUser} /> Usuarios
           </Link>
           
           <Link to="/products" className={style.text}>
-            Productos
+          <FontAwesomeIcon icon={faBriefcase} /> Productos
           </Link>
           
           <Link to="/categories" className={style.text}>
-            Categorias
+          <FontAwesomeIcon icon={faListAlt} /> Categorias
           </Link>
           
           <Link to="/post-category" className={style.text}>
-            Crear Categoria
+          <FontAwesomeIcon icon={faPlusCircle} /> Crear Categoria
           </Link>
 
       </Container>

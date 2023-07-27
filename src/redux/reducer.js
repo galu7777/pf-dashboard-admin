@@ -12,6 +12,7 @@ import {
         USERS_ID_SORT,
         USERS_NAME_FILTER,
         USERS_NAME_SORT,
+        PUT_USERS,
     } 
 from "./actionTypes"
 
@@ -22,6 +23,7 @@ const initialState = {
     categories: [],
     users: [],
     allUsers:[],
+    upUsers: [],
     productIdFilter: {},
     productIdSort: "",
     productNameSort: "",
@@ -55,6 +57,12 @@ export const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 upProducts: payload
+            }
+
+        case PUT_USERS:
+            return {
+                ...state,
+                upUsers: payload
             }
 
         case PRODUCT_ID_FILTER:

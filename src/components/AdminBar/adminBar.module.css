@@ -4,6 +4,7 @@
   background-color: rgb(191, 219, 247);
   width: 250px;
   height: 100vh;
+  border-radius: 10px;
 }
 
 .text{
@@ -13,7 +14,10 @@
   text-decoration: none;
 }
 
+.text:hover {
+  color: white;
+}
+
 .textContainer{
   margin-top: 10px;
 }
-

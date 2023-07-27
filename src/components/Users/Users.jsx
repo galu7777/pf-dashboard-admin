@@ -1,6 +1,6 @@
+
 import ListGroup from 'react-bootstrap/ListGroup';
-import style from "./Users.module.css"
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import User from './User';
 import { useSelector } from 'react-redux';
 import IdFilter from '../Filters/UsersFilters/userFilters/IdFilter';
@@ -56,11 +56,15 @@ function Users () {
     <ListGroup>
       {currentUsers.map((user) => (
         <User 
+        key={user.id}
         id={user.id}
-        name={user.full_name}
+        full_name={user.full_name}
         email={user.email}
-        rol={user.rol}
-        state={user.state}
+        password={user.password}
+        phone={user.phone}
+        direction_shipping={user.direction_shipping}
+        status={user.status}
+        role={user.role}
         />
       ))}
     </ListGroup>
@@ -75,4 +79,10 @@ function Users () {
     )
 }
 
-export default Users;
+const mapStateToProps = (state) => {
+    return {
+        users: state.users,
+    }
+}
+
+export default connect(mapStateToProps, null)(Users);

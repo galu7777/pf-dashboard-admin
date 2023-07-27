@@ -27,10 +27,10 @@ function App() {
       <NavBar />
       <div className="container-fluid fondo">
         <div className="row">
-          <div className="col-3">
+          <div className="col-2">
             <AdminBar />
           </div>
-          <div className="col-8 fondo">
+          <div className="col-10 fondo">
             <Routes>
               <Route index element={<Home />} />
               <Route path="*" element={<Home />} />
