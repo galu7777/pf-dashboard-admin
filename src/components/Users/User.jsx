@@ -20,7 +20,6 @@ function User({ id, full_name, email, status, role, image }) {
         }
         console.log(updateUsers)
         dispatch(putUsers(id, updateUsers))
-
         Swal.fire('El Cambio de Estado', `el usuario ${full_name} ha sido ${estadoAlert}`, 'success')
             .then((result) => {
                 // Este código se ejecutará después de que el cuadro de diálogo se cierre.
