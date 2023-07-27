@@ -18,7 +18,7 @@ function Home ({ products, categories, users }) {
                 <Col md={12}>
             <h1 className='container'>Graficos Estadisticos</h1>
 
-            <div>
+            <div style={{ width: '80%', height: '80%', }} className='container'>
                 <VictoryChart
                     theme={VictoryTheme.material}
                     domainPadding={{ x: 20 }}

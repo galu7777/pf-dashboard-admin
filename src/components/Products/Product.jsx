@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { putProducts } from '../../redux/actions';
-import { getAllProducts } from '../../redux/actions';
+import { getAllProducts, putProducts } from '../../redux/actions';
+import Swal from 'sweetalert2';
 
 function Product({ id, name, image, category, price, status }) {
   const dispatch = useDispatch();
@@ -15,10 +15,16 @@ function Product({ id, name, image, category, price, status }) {
     }
     console.log(updateProducts)
     dispatch(putProducts(id, updateProducts))
-    alert(`el producto "${name}" a sido ${estadoAlert}`)
+    Swal.fire('El Cambio de Estado', `El producto "${name}" a sido ${estadoAlert}`, 'success')
+        .then((result) => {
+          // Este código se ejecutará después de que el cuadro de diálogo se cierre.
+            if (result.isConfirmed) {
+                dispatch(getAllProducts());
+            }
+        });
     dispatch(getAllProducts())
   }
-
+  
 
 
 
