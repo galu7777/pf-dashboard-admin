@@ -8,6 +8,10 @@ import {
         PRODUCT_NAME_SORT,
         PUT_PRODUCTS,
         EDIT_CATEGORY,
+        USERS_ID_FILTER,
+        USERS_ID_SORT,
+        USERS_NAME_FILTER,
+        USERS_NAME_SORT,
     } 
 from "./actionTypes"
 
@@ -17,9 +21,12 @@ const initialState = {
     upProducts: [],
     categories: [],
     users: [],
+    allUsers:[],
     productIdFilter: {},
     productIdSort: "",
     productNameSort: "",
+    userIdSort: "",
+    userNameSort: ""
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -40,7 +47,8 @@ export const reducer = (state = initialState, { type, payload }) => {
         case GET_ALL_USERS:
             return{
                 ...state,
-                users: payload
+                users: payload,
+                allUsers: payload
             }
 
         case PUT_PRODUCTS:
@@ -83,6 +91,32 @@ export const reducer = (state = initialState, { type, payload }) => {
         case EDIT_CATEGORY:
             return{
                 ...state
+            }
+            
+        case USERS_ID_FILTER:
+            const userFiltered = state.allUsers.filter(user => user.id == payload)
+            return{
+                ...state,
+                users: userFiltered.length !== 0 ? userFiltered : state.users
+            }
+
+        case USERS_ID_SORT:
+            return{
+                ...state,
+                userIdSort: payload
+            }
+
+        case USERS_NAME_FILTER:
+            const usersName = state.allUsers.filter((user) => user.full_name == payload)
+            return{
+                ...state,
+                users: usersName.length !== 0 ? usersName : state.users
+            }
+
+        case USERS_NAME_SORT:
+            return{
+                ...state,
+                userNameSort: payload
             }
 
         default:

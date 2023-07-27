@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { editCategory } from '../../redux/actions';
+import { editCategory, getAllCategories } from '../../redux/actions';
 
 function Category (props) {
     const [ editMode, setEditMode ] = useState(false);
@@ -16,7 +16,7 @@ function Category (props) {
     const handleClick = () => {
         setEditMode(!editMode)
     }
-
+    
     const handleImageChange = (event) => {
         const imageFile = event.target.files[0]; 
         setSelectedImage(imageFile); 
@@ -37,7 +37,7 @@ function Category (props) {
                 <Col className="p-2">{props.id}</Col>
                 {!editMode ? 
                 <img className={style.userImage} src={props.image} alt="category image" />
-                 : <input type='file' onChange={handleImageChange} /> 
+                 : <input type='file' onChange={handleImageChange}/> 
                  }
                 {!editMode ? 
                 <Col className="p-2" style={editMode === true ? {background:"red"} : null}>{props.name}</Col> 
