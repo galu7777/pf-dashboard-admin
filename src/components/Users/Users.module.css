@@ -33,3 +33,7 @@
 .title{
     text-align: center;
 }
+.restar{
+    display: flex;
+    margin-left: 40%;
+}

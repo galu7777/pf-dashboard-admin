@@ -32,7 +32,7 @@ function User({ id, full_name, email, status, role, image }) {
 
     return (
         <div>
-            <ListGroup.Item action variant={boolean ? "dark" : "light"} className={style.userContainer}>
+            {/* <ListGroup.Item action variant={boolean ? "dark" : "light"} className={style.userContainer}>
                 <h5 className={style.userId}>{id}</h5>
                 <div className={style.imageDiv}>
                     <img src={image} className={style.userImage} alt="image" />
@@ -42,17 +42,45 @@ function User({ id, full_name, email, status, role, image }) {
                 <h5>{rol}</h5>
                 <h5>{estado}</h5>
                 {
-                    status == 1
-                        ?
-                        <button onClick={() => handleButton(0)}>
-                            <i className={`bi bi-check-circle p-2`}></i>
-                        </button>
-                        :
-                        <button onClick={() => handleButton(1)}>
-                            <i className="bi bi-dash-circle"></i>
-                        </button>
+                    status === 1
+                    ? 
+                    <button onClick={() => handleButton(0)}>
+                        <i className={`bi bi-check-circle p-2`}></i>
+                        {estado}
+                    </button> 
+                    : 
+                    <button onClick={() => handleButton(1)}>
+                        <i className={`bi bi-dash-circle`}></i>
+                        {estado}
+                    </button>
                 }
-            </ListGroup.Item>
+            </ListGroup.Item> */}
+            <tr>
+                <td>{id}</td>
+                <td> <img src={image} alt={full_name} style={{ width: '50px' }} /> {full_name} </td>
+                <td>{email}</td>
+                {/* <td>{category}</td> */}
+                {/* Filtrar por estado de venta */}
+                {/* <td>Filtrar por estado de venta</td> */}
+                {/* Otras columnas si las tienes */}
+                <td>{rol}</td>
+                <td>{estado}</td>
+                <td>
+                {
+                    status === 1
+                    ? 
+                    <button onClick={() => handleButton(0)}>
+                        <i className={`bi bi-check-circle p-2`}></i>
+                        {estado}
+                    </button> 
+                    : 
+                    <button onClick={() => handleButton(1)}>
+                        <i className={`bi bi-dash-circle`}></i>
+                        {estado}
+                    </button>
+                }
+                </td>
+            </tr>
         </div>
     )
 }
