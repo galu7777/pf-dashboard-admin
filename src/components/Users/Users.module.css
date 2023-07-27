@@ -61,3 +61,24 @@
     background-color: #d2322d;
     border-color: #ac2925;
 }
+
+
+.rolUser{
+    color:white;
+    background-color: #137ec5;
+    border-color: #137ec5;
+}
+
+.rolUser:hover{
+    background-color: #0f69a5;
+}
+
+.rolAdmin{
+    color:white;
+    background-color: #f5f111;
+    border-color: #f5f111;
+}
+
+.rolAdmin:hover{
+    background-color: #d3d011;
+}

@@ -52,9 +52,10 @@ function Users () {
           <thead>
             <tr>
                 <th><IdFilter setCurrentPage={setCurrentPage}/></th>
+                <th>imagen</th>
                 <th><UserNameFilter setCurrentPage={setCurrentPage}/></th>
-                <th>Precio</th>
-                <th>Categorias</th>
+                <th>Email</th>
+                <th>Rol</th>
                 <th>Estado</th>
             </tr>
           </thead>

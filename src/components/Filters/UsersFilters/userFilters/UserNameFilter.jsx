@@ -13,8 +13,6 @@ function UserNameFilter (props) {
       const { value } = e.target;
         setInput(value)
     }
-    console.log(input)
-
     const capital = input.charAt(0).toUpperCase() + input.slice(1);
 
     const handleOptionSelect = (option) => {

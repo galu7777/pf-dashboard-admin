@@ -30,12 +30,43 @@ function User({ id, full_name, email, status, role, image }) {
             });
     }
 
+    const handleButtonAdmin = (value) => {
+        const stringNum = String(value)
+        const updateUsers = {
+            role: stringNum
+        }
+        console.log(updateUsers)
+        dispatch(putUsers(id, updateUsers))
+        Swal.fire('El Cambio de Rol', `Del usuario ${full_name} ha sido exitoso`, 'success')
+            .then((result) => {
+                // Este código se ejecutará después de que el cuadro de diálogo se cierre.
+                if (result.isConfirmed) {
+                    dispatch(getAllUsers());
+                }
+            });
+    }
+
     return (
             <tr>
                 <td>{id}</td>
-                <td> <img src={image} alt={full_name} style={{ width: '50px' }} /> {full_name} </td>
+                <td> <img src={image} alt={full_name} style={{ width: '50px' }} /></td>
+                <td>{full_name}</td>
                 <td>{email}</td>
-                <td>{rol}</td>
+                <td>
+                    {
+                        role === 2
+                        ?
+                        <button onClick={() => handleButtonAdmin(1)} className={style.rolAdmin}>
+                            <i className={`bi bi-dash-circle`}></i>
+                            {rol}
+                        </button>
+                        :
+                        <button onClick={() => handleButtonAdmin(2)} className={style.rolUser}>
+                            <i className={`bi bi-check-circle p-2`}></i>
+                            {rol}
+                        </button>
+                    }
+                </td>
                 <td>
                 {
                     status === 1
