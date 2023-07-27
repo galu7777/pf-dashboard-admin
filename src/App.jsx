@@ -11,8 +11,6 @@ import Products from './components/Products/Products';
 import { useDispatch } from 'react-redux';
 import { getAllCategories, getAllProducts, getAllUsers } from './redux/actions';
 import Categories from './components/Categories/Categories';
-import PostCategory from './components/PostCategory/PostCategory';
-
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +35,6 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path='/products' element={<Products />} />
               <Route path='/categories' element={<Categories />}/>
-              <Route path='/post-category' element={<PostCategory />}/>
             </Routes>
           </div>
         </div>

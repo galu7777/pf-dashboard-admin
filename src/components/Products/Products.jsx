@@ -1,4 +1,3 @@
-
 import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
@@ -7,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
 import RestartFilters from '../Filters/ProductsFilters/RestartFilters';
-
 import style from "./Products.module.css";
+import { Container, Row, Table } from 'react-bootstrap';
 
 function Products () {
   const products = useSelector((state) => state.products);
@@ -48,11 +47,6 @@ function Products () {
     return (
       
       <Container fluid>
-        <div className={style.restar}>
-        {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th> */}
-        {/* <th><RestartFilters /></th> */}
-          <RestartFilters />
-        </div>
         <Table striped bordered hover table-bordered>
           <thead>
             <tr>
@@ -71,7 +65,7 @@ function Products () {
                   image={product.image}
                   name={product.name}
                   price={product.price}
-                  
+
                   category={product.Categories}
                   status={product.status}
                 />
@@ -79,6 +73,7 @@ function Products () {
         </tbody>
         </Table>
       <Row>
+      <RestartFilters />
         <PaginationComponent 
         currentPage={currentPage}
         totalPages={Math.ceil(products.length / itemsPerPage)}

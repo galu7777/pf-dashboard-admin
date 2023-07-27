@@ -13,7 +13,7 @@ function Categories (){
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentCategories = categories.slice(indexOfFirstItem, indexOfLastItem);
+    const currentCategories = categories.sort((a, b) => a.id - b.id).slice(indexOfFirstItem, indexOfLastItem);
     return (
         <Container fluid>
             <Row className={style.title}>
@@ -31,16 +31,7 @@ function Categories (){
         </thead>
         <tbody>   
 
-        {currentCategories.map((product) => (
-    <   tr key={product.id}>
-      <td>{product.id}</td>
-      <td>{product.name} </td>
-      
-    </tr>
-  ))}
-
-            {/* <ListGroup>
-                {currentCategories.map((category) => (
+        {currentCategories.map((category) => (
                     <Category
                     key={category.id}
                     id={category.id}
@@ -48,12 +39,8 @@ function Categories (){
                     image={category.image}
                     />
                 ))}
-            </ListGroup> */}
-
         </tbody>
         </Table>
-
-
             <Row>
                 <PaginationComponent 
                 currentPage={currentPage}

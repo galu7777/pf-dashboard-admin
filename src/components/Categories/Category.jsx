@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { editCategory, getAllCategories } from '../../redux/actions';
+import Swal from 'sweetalert2';
 
 function Category (props) {
     const [ editMode, setEditMode ] = useState(false);
@@ -30,8 +31,13 @@ function Category (props) {
         const editImageClick = (id, name, image) => {
             dispatch(editCategory(id, image, name))
             setEditMode(false)
+            Swal.fire("Cambio realizado", `La categoria ${props.name} ha sido modificada`, "success")
+            .then((result) => {
+                if(result.isConfirmed) {
+                    dispatch(getAllCategories());
+                }
+            })
         }
-
     return (
         <ListGroup.Item action variant="light" className="d-flex align-items-center">
                 <Col className="p-2">{props.id}</Col>

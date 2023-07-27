@@ -1,8 +1,8 @@
-
+import style from "./Users.module.css"
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Container, Table } from 'react-bootstrap';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import User from './User';
-import { useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import IdFilter from '../Filters/UsersFilters/userFilters/IdFilter';
 import UserNameFilter from '../Filters/UsersFilters/userFilters/UserNameFilter';
 import { useState } from 'react';
@@ -46,28 +46,33 @@ function Users () {
     const currentUsers = applyFilters(userNameSort,idSorted,users).slice(indexOfFirstItem, indexOfLastItem);
 
     return (
-<Container >
-    <Row className={style.title}>
-        <Col xs={2} >
-            <IdFilter setCurrentPage={setCurrentPage}/>
-            <UserNameFilter setCurrentPage={setCurrentPage}/>
-        </Col>
-    </Row>     
-    <ListGroup>
-      {currentUsers.map((user) => (
-        <User 
-        key={user.id}
-        id={user.id}
-        full_name={user.full_name}
-        email={user.email}
-        password={user.password}
-        phone={user.phone}
-        direction_shipping={user.direction_shipping}
-        status={user.status}
-        role={user.role}
-        />
-      ))}
-    </ListGroup>
+<Container fluid>
+    <Table striped bordered hover table-bordered>        
+          <thead>
+            <tr>
+                <th><IdFilter setCurrentPage={setCurrentPage}/></th>
+                <th><UserNameFilter setCurrentPage={setCurrentPage}/></th>
+                <th>Precio</th>
+                <th>Categorias</th>
+                <th>Estado</th>
+            </tr>
+          </thead>
+        <tbody>
+        {currentUsers.map((user) => (
+          <User 
+          key={user.id}
+          id={user.id}
+          full_name={user.full_name}
+          email={user.email}
+          password={user.password}
+          phone={user.phone}
+          direction_shipping={user.direction_shipping}
+          status={user.status}
+          role={user.role}
+          />
+          ))}
+    </tbody>
+    </Table>
      <Row>
         <PaginationComponent 
         currentPage={currentPage}
