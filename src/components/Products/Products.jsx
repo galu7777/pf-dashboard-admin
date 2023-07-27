@@ -4,12 +4,12 @@ import Product from './Product';
 import ProductIdFilter from '../Filters/ProductsFilters/ProductIdFilter';
 import ProductNameFilter from '../Filters/ProductsFilters/ProductNameFilter';
 // import CategoryFilter from '../Filters/ProductsFilters/CategoryFilter';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import PaginationComponent from '../Pagination/Pagination';
 import RestartFilters from '../Filters/ProductsFilters/RestartFilters';
 
 import style from "./Products.module.css";
-import { useSelector } from 'react-redux';
 
 function Products () {
   const products = useSelector((state) => state.products);
@@ -51,18 +51,18 @@ function Products () {
       
       <Container fluid>
         <div className={style.restar}>
+        {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th> */}
+        {/* <th><RestartFilters /></th> */}
           <RestartFilters />
         </div>
         <Table striped bordered hover table-bordered>
           <thead>
             <tr>
-              <th><ProductIdFilter /></th>
-              <th><ProductNameFilter /></th>
+              <th><ProductIdFilter setCurrentPage={setCurrentPage}/></th>
+              <th><ProductNameFilter setCurrentPage={setCurrentPage}/></th>
               <th>Precio</th>
               <th>Categorias</th>
               <th>Estado</th>
-              {/* <th><ProductStatusFilter onChange={handleFilterChange} /></th>
-              <th><RestartFilters /></th> */}
             </tr>
           </thead>
           <tbody>
@@ -80,7 +80,6 @@ function Products () {
               ))}
         </tbody>
         </Table>
-
       <Row>
         <PaginationComponent 
         currentPage={currentPage}
