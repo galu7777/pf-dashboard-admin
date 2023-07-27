@@ -15,11 +15,14 @@ function User({ id, full_name, email, status, role, image }) {
     const estadoAlert = estado === "inhabilitado" ? "habilitado" : "inhabilitado";
 
     const handleButton = (value) => {
+        if(id === 1 && full_name === 'super'){
+            return Swal.fire('Error en el Cambio de Estado', 'No puedes Deshabilitar al super admin', 'error')
+        }
         const stringNum = String(value)
         const updateUsers = {
             status: stringNum
         }
-        console.log(updateUsers)
+        
         dispatch(putUsers(id, updateUsers))
         Swal.fire('El Cambio de Estado', `el usuario ${full_name} ha sido ${estadoAlert}`, 'success')
             .then((result) => {
@@ -31,11 +34,15 @@ function User({ id, full_name, email, status, role, image }) {
     }
 
     const handleButtonAdmin = (value) => {
+        if(id === 1 && full_name === 'super'){
+            return Swal.fire('Error en el Cambio de Rol', 'No puedes quitarle el rol al super admin', 'error')                       
+        }
+
         const stringNum = String(value)
         const updateUsers = {
             role: stringNum
         }
-        console.log(updateUsers)
+                
         dispatch(putUsers(id, updateUsers))
         Swal.fire('El Cambio de Rol', `Del usuario ${full_name} ha sido exitoso`, 'success')
             .then((result) => {
