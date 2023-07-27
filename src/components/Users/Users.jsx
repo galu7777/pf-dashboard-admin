@@ -30,7 +30,7 @@ function Users ({ users }) {
                 
                 <tr  key={user.id} >
                  <td> {user.id} </td>
-                 <td> <img src={user.image} alt={user.name} style={{ width: '50px' }} /> {user.name} </td>
+                 <td> <img src={user.image}  style={{ width: '50px' }} /> {user.full_name} </td>
                  <td> {user.email} </td>
                  <td> {user.role} </td>
                  <td> {user.status} </td>
