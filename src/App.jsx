@@ -9,7 +9,7 @@ import AdminBar from './components/AdminBar/AdminBar';
 import Products from './components/Products/Products';
 import { getAllCategories, getAllProducts, getAllUsers } from './redux/actions';
 import Categories from './components/Categories/Categories';
-import Form from './components/Form/Form';
+import Login from './components/Login/Login';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
@@ -39,10 +39,10 @@ function App() {
         setAccess(true);
         navigate('/home');
       } else {
-        console.log("User is not authorized to access.");
+        throw new Error("User is not authorized to access.");
       }
     } else {
-      console.log("User not found.");
+      throw new Error("User not found.");
     }
   };
 
@@ -67,7 +67,7 @@ function App() {
           <div className="col-10 fondo">
             <Routes>
               {/* <Route index element={<Home />} /> */}
-              <Route path="/" element={<Form login={handleLogin}/>}/>
+              <Route path="/" element={<Login login={handleLogin}/>}/>
               <Route path="/home" element={<Home />} />
               <Route path="/users" element={<Users />} />
               <Route path='/products' element={<Products />} />

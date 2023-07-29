@@ -63,7 +63,7 @@ function User({ id, full_name, email, status, role, image }) {
                     {
                         role === 2
                         ?
-                        <button onClick={() => handleButtonAdmin(1)} className={style.rolAdmin}>
+                        <button onClick={() => handleButtonAdmin(1)} className={`${style.rolAdmin} ${style.black}`}>
                             <i className={`bi bi-dash-circle`}></i>
                             {rol}
                         </button>

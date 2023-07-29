@@ -24,8 +24,8 @@ function Categories (){
             <Table striped bordered hover table-bordered>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Categoria</th>
+            {/* <th>ID</th> */}
+            <th className={ style.title }>Categorias</th>
             {/* <th>Estado</th> */}
          </tr>
         </thead>
